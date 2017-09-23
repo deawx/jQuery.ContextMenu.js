@@ -1,2 +1,2 @@
-# jQuery.ContextMenu.js
-A jQuery plugin to make simple to create ContextMenus on DOM objects' right click.
+# jByloth
+A jQuery extension with some interesting functionality used by almost every Byloth's JS projects.
