@@ -12,6 +12,13 @@
 			{
 				text-align: center;
 			}
+
+            .navbar
+            {
+                border-radius: 0px;
+                margin-bottom: 0px;
+            }
+
             .context-menu.dropdown-menu
             {
                 display: block;
@@ -61,10 +68,29 @@
                 width: 0px;
             }
 		</style>
-		<title>jQuery.ContextMenu.js 1.0.0</title>
+		<title>jQuery.ContextMenu.js</title>
 	</head>
 	<body>
-		<h1>Do right-click!</h1>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">
+                        jQuery.ContextMenu.js 1.0.0
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div class="jumbotron">
+                <div class="container">
+                    <h1>Do right-click!</h1>
+                    <h3>
+                        Wherever you want!
+                        <span class="fa fa-smile-o"></span>
+                    </h3>
+                </div>
+            </div>
+        </main>
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="node_modules/tether/dist/js/tether.min.js"></script>
@@ -74,7 +100,10 @@
             {
                 let _debug = function(properties)
                 {
+                    console.groupCollapsed("jQuery.ContextMenu.js");
                     console.debug("Hai selezionato '" + properties.text + "' ('" + properties.key + "').");
+                    console.debug(this);
+                    console.groupEnd();
                 };
 
                 let _menuItems = [
@@ -226,7 +255,7 @@
                     }
                 ];
                 
-                $(window).contextMenu({
+                $("*").contextMenu({
 
                     items: _menuItems
                 });

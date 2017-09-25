@@ -39,6 +39,7 @@
         let _context;
         let _contextMenu;
         let _cursor;
+        let _target;
         
     // Instance indipendent private methods:
         let _append = function(obj)
@@ -107,7 +108,7 @@
                 {
                     if (_isUndefined(properties.action) === false)
                     {
-                        let _haveToClose = properties.action.call(this, properties);
+                        let _haveToClose = properties.action.call(_target, properties, e);
 
                         if (_haveToClose !== false)
                         {
@@ -341,6 +342,8 @@
             // Private methods:
                 let _onRightClick = function(e)
                 {
+                    _target = this;
+
                     if (_isUndefined(_contextMenu) === false)
                     {
                         _contextMenu.close();
@@ -352,7 +355,7 @@
 
                     if (typeof(_items) === "function")
                     {
-                        _computedItems = _items.call(this);
+                        _computedItems = _items.call(_target);
                     }
 
                     _contextMenu = new Menu(_computedItems);

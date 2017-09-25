@@ -38,6 +38,7 @@ if (typeof jQuery === "undefined") {
     var _context = void 0;
     var _contextMenu = void 0;
     var _cursor = void 0;
+    var _target = void 0;
 
     // Instance indipendent private methods:
     var _append = function _append(obj) {
@@ -92,7 +93,7 @@ if (typeof jQuery === "undefined") {
 
         var _onClick = function _onClick(e) {
             if (_isUndefined(properties.action) === false) {
-                var _haveToClose = properties.action.call(this, properties);
+                var _haveToClose = properties.action.call(_target, properties, e);
 
                 if (_haveToClose !== false) {
                     _contextMenu.close();
@@ -288,6 +289,8 @@ if (typeof jQuery === "undefined") {
 
         // Private methods:
         var _onRightClick = function _onRightClick(e) {
+            _target = this;
+
             if (_isUndefined(_contextMenu) === false) {
                 _contextMenu.close();
             }
@@ -297,7 +300,7 @@ if (typeof jQuery === "undefined") {
             var _computedItems = _items;
 
             if (typeof _items === "function") {
-                _computedItems = _items.call(this);
+                _computedItems = _items.call(_target);
             }
 
             _contextMenu = new Menu(_computedItems);
