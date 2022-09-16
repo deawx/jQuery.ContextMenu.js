@@ -12,7 +12,7 @@
 	"private": true,
 	"main": "index.html",
 	"dependencies": {
-		"bootstrap": "^3.3.7",
+		"bootstrap": "^3.4.1",
 		"font-awesome": "^4.7.0",
 		"jquery": "^3.2.1",
 		"tether": "^1.4.0"
